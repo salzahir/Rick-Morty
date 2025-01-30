@@ -35,7 +35,7 @@ func fetchCharacters() async throws -> [Character] {
         throw URLError(.badURL)
     }
     let (data, _) = try await URLSession.shared.data(from: url)
-    let response = try JSONDecoder().decode(Response.self, from: data)
+    let response = try JSONDecoder().decode(CharacterResponse.self, from: data)
     print(response.results)
     return response.results
 }

@@ -1,5 +1,5 @@
 //
-//  JSONResponse.swift
+//  CharacterResponse.swift
 //  RickAndMorty
 //
 //  Created by Salman Z on 1/30/25.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Response: Codable {
+struct CharacterResponse: Codable {
     let info: info
     let results: [Character]
 }

@@ -33,6 +33,8 @@ struct WelcomeView: View {
                     .padding()
                     .background(Color.portalAccent)
                     .cornerRadius(10)
+                    .bold()
+                    .shadow(radius: 5)
             }
             Spacer()
 

@@ -48,16 +48,17 @@ struct DetailView: View {
                     Text("Location - URL: \(character.location.url)")
                 }
 
-                
-                
                 Section {
                     Button("Show episodes appeared in") {
                         showEpisodes.toggle()
                     }
+                    
                     if showEpisodes{
                         // Displaying the Episodes (looping through the episodes)
-                        ForEach(character.episode, id: \.self) { episode in
-                            Text("Episode: \(episode)")
+                        ForEach(character.episode, id: \.self) { episodeURL in
+                            NavigationLink(destination: EpisodeView(episodeURL: episodeURL)) {
+                                Text("Episode \(episodeURL)")
+                            }
                         }
                     }
                 } header: {
