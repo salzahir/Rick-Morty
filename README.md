@@ -1,24 +1,31 @@
-# Rick and Morty API iOS App
+# Rick and Morty API Swift App
 
-This is an iOS app that interacts with the [Rick and Morty API](https://rickandmortyapi.com/), allowing users to view details about characters, including their names, status, species, and more. The app displays a list of characters, which can be tapped to see detailed information on each one.
+This is a simple SwiftUI app that fetches and displays character data from the **Rick and Morty API**. The app provides an interface to explore characters and episodes from the show, along with details about their origin, location, and episodes.
 
 ## Features
 
-- **Character List:** View a list of characters from the Rick and Morty universe.
-- **Character Details:** Tap on any character to view more information, including origin, location, and episodes.
-- **API Integration:** Fetches data from the Rick and Morty API and displays character data dynamically.
-- **Detail View:** Each character has a detailed view showing their ID, name, status, species, type, gender, origin, location, and episodes.
+- **Character List**: Displays a list of characters from the show, including their name and other basic details.
+- **Character Details View**: Taps on a character to view more information, including their status, species, gender, origin, and location.
+- **Episode View**: Displays a list of episodes for a selected character, fetched from a new API method.
   
+## Screenshots
+
+*Add screenshots here if applicable.*
+
+## API Endpoints
+
+- **Character API**: `/api/character`
+- **Episode API**: `/api/episode`
+
 ## Technologies Used
 
-- **Swift:** The app is built using Swift, leveraging the latest features of SwiftUI for a modern and responsive UI.
-- **SwiftUI:** UI framework used to build the user interface.
-- **Asynchronous Data Fetching:** Fetching character data asynchronously using `async/await`.
-- **JSON Parsing:** Data from the API is parsed into Swift structs using the `Codable` protocol.
-  
+- **Swift**: The app is built using Swift.
+- **SwiftUI**: The app uses SwiftUI for the user interface.
+- **Combine**: Combine framework is used for managing API data fetching.
+- **JSONDecoder**: Decodes the JSON response from the API into usable data.
+
 ## Installation
 
-1. Clone the repository:
-
+1. Clone this repository to your local machine:
    ```bash
    git clone https://github.com/salzahir/Rick-Morty.git
