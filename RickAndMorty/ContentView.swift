@@ -8,14 +8,12 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State var characters: [Character]  = []
+
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        NavigationStack{
+            WelcomeView(characters: $characters)
         }
-        .padding()
     }
 }
 
