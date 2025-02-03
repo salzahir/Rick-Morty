@@ -14,16 +14,17 @@ struct CharacterListView: View {
     
     var body: some View {
         List(viewModel.characters, id: \.id) { character in
-            NavigationLink(character.name, destination: DetailView(character: character))
+            NavigationLink(character.name, destination: DetailView(viewModel: viewModel, character: character))
         }
         .navigationTitle("Rick and Morty API")
         .navigationBarTitleDisplayMode(.inline)
         .task {
             do {
-                if let characters = try? await viewModel.fetchCharacters() {
-                    viewModel.characters = characters
-                    print(characters)
-                }
+                let characters = try await viewModel.fetchCharacters()
+                viewModel.characters = characters
+                print(characters)
+            } catch {
+                print("Error fetching characters: \(error)")
             }
         }
     }

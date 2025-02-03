@@ -10,7 +10,9 @@ import SwiftUI
 
 struct DetailView: View {
     
+    @ObservedObject var viewModel: ViewModel
     var character: Character
+    
     @State var showEpisodes: Bool = false
     
     var body: some View {
@@ -56,7 +58,7 @@ struct DetailView: View {
                     if showEpisodes{
                         // Displaying the Episodes (looping through the episodes)
                         ForEach(character.episode, id: \.self) { episodeURL in
-                            NavigationLink(destination: EpisodeView(episodeURL: episodeURL)) {
+                            NavigationLink(destination: EpisodeView(viewModel: viewModel, episodeURL: episodeURL)) {
                                 Text("Episode \(episodeURL)")
                             }
                         }
