@@ -1,5 +1,7 @@
 # Rick and Morty API Swift App
 
+![App Icon](images/icon.png)
+
 This is a simple SwiftUI app that fetches and displays character and episode data from the **Rick and Morty API**. The app provides an interface to explore characters and episodes from the show, with details like the characters' names, origins, locations, and episodes they appear in.
 
 ## Architecture: MVVM
