@@ -10,18 +10,18 @@ import SwiftUI
 
 struct CharacterListView: View {
     
-    @Binding var characters: [Character]
-
+    @ObservedObject var viewModel: ViewModel
+    
     var body: some View {
-        List(characters, id: \.id) { character in
+        List(viewModel.characters, id: \.id) { character in
             NavigationLink(character.name, destination: DetailView(character: character))
         }
         .navigationTitle("Rick and Morty API")
         .navigationBarTitleDisplayMode(.inline)
         .task {
             do {
-                if let characters = try? await fetchCharacters() {
-                    self.characters = characters
+                if let characters = try? await viewModel.fetchCharacters() {
+                    viewModel.characters = characters
                     print(characters)
                 }
             }
@@ -29,13 +29,4 @@ struct CharacterListView: View {
     }
 }
 
-func fetchCharacters() async throws -> [Character] {
-    guard let url = URL(string: "https://rickandmortyapi.com/api/character") else {
-        print("Error")
-        throw URLError(.badURL)
-    }
-    let (data, _) = try await URLSession.shared.data(from: url)
-    let response = try JSONDecoder().decode(CharacterResponse.self, from: data)
-    print(response.results)
-    return response.results
-}
+

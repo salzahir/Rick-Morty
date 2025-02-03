@@ -10,7 +10,7 @@ import SwiftUI
 
 struct WelcomeView: View {
     
-    @Binding var characters: [Character]
+    @ObservedObject var viewModel: ViewModel
 
     var body: some View {
         VStack {
@@ -26,7 +26,7 @@ struct WelcomeView: View {
                 .resizable()
                 .scaledToFit()
             
-            NavigationLink(destination: CharacterListView(characters: $characters)) {
+            NavigationLink(destination: CharacterListView(viewModel: viewModel)) {
                 Text("Open Portal")
                     .font(.headline)
                     .foregroundColor(.white)

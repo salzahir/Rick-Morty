@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State var characters: [Character]  = []
+    @StateObject var viewModel: ViewModel = ViewModel()
 
     var body: some View {
         NavigationStack{
-            WelcomeView(characters: $characters)
+            WelcomeView(viewModel: viewModel)
         }
     }
 }
