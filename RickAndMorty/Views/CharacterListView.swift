@@ -13,9 +13,10 @@ struct CharacterListView: View {
     @ObservedObject var viewModel: ViewModel
     
     var body: some View {
-        List(viewModel.characters, id: \.id) { character in
+        List(viewModel.filteredcharacters, id: \.id) { character in
             NavigationLink(character.name, destination: DetailView(viewModel: viewModel, character: character))
         }
+        .searchable(text: $viewModel.searchText)
         .navigationTitle("Rick and Morty API")
         .navigationBarTitleDisplayMode(.inline)
         .task {
